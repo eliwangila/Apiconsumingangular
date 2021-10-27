@@ -1,4 +1,4 @@
-<!-- # Blog-website
+ # Blog-website
 
 ## Author
 Created by **Eli Wangila** (c) 2021
@@ -45,7 +45,7 @@ This website is a Blog for all topics written by all users.
 
     ## Lisence
     MIT @ 2021
-    **Eli Wangila** -->
+    **Eli Wangila**
 
 
 
