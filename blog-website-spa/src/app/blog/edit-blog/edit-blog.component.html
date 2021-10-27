@@ -1,0 +1,61 @@
+<main>
+
+  <div class="errors">
+    <ng-container class="errors" *ngIf="topicInput.touched">
+      <p *ngIf="topicInput.errors?.required" class="error">
+        Topic is required!
+      </p>
+      <p *ngIf="topicInput.errors?.minlength" class="error">
+        Topic must be at least 3 characters!
+      </p>
+    </ng-container>
+    <ng-container *ngIf="titleInput.touched">
+      <p *ngIf="titleInput.errors?.required" class="error">
+        Title is required!
+      </p>
+      <p *ngIf="titleInput.errors?.minlength" class="error">
+        Title must be at least 3 characters!
+      </p>
+    </ng-container>
+    <ng-container *ngIf="contentInput.touched">
+      <p *ngIf="contentInput.errors?.required" class="error">
+        Content is required!
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="container">
+    <form #form="ngForm" (ngSubmit)="editBlog(form)">
+      <h2>Edit Blog</h2>
+      <!--Topic-->
+      <div class="form-group">
+        <label for="topic"><img src="assets/topic.png" alt="topic img"></label>
+        <input type="text" #topicInput="ngModel" ngModel="{{blog!.topic}}" [minlength]="3" required name="topic"
+               id="topic" placeholder="Topic">
+      </div>
+
+      <!--Title-->
+      <div class="form-group">
+        <label for="title"><img src="assets/title.png" alt="title img"></label>
+        <input type="text" #titleInput="ngModel" ngModel="{{blog!.title}}" [minlength]="3" required name="title"
+               id="title" placeholder="Title">
+      </div>
+
+      <!--Image-->
+      <div class="form-group">
+        <label for="title"><img src="{{blog!.image}}" alt="image img"></label>
+        <input type="file" accept="image/*" (change)="onFileChange($event)" #imageInput="ngModel" ngModel="{{blog!.image}}"
+               name="image" id="image">
+      </div>
+
+      <!--Content-->
+      <div class="form-group" id="content-form-group">
+        <textarea #contentInput="ngModel" ngModel="{{blog!.content}}" required name="content" id="content" rows="5" cols="30"
+                  placeholder="Content"></textarea>
+      </div>
+
+      <button>Edit</button>
+    </form>
+  </div>
+
+</main>

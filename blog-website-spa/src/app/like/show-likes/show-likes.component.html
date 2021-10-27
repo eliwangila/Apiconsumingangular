@@ -1,0 +1,41 @@
+<main>
+  <div class="head">
+    <div class="title">
+      <img src="assets/wishlist.png" alt="likes list img">
+      <h1>Liked Blogs</h1>
+    </div>
+
+    <div class="search-box" *ngIf="likes">
+      <input type="text" #searchInput (change)="searchButtonHandler(searchInput)" value="{{search}}"
+             placeholder="Search...">
+      <div class="buttons">
+        <i id="search" (click)="searchButtonHandler(searchInput)" class="fas fa-search"></i>
+        <i id="redo" (click)="refreshButtonHandler()" class="fas fa-redo"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-container" *ngIf="likes">
+    <div class="blog" *ngFor="let like of likes">
+      <a routerLink="/blogs/{{like.blog.id}}">
+        <img src="{{like.blog.image}}" alt="{{like.blog.title}} image">
+      </a>
+
+        <div class="blog-title">
+          <span>{{like.blog.topic}}</span>
+          <h1>{{like.blog.title}}</h1>
+        </div>
+        <div class="blog-info">
+          <a class="like full" (click)="performLike(like.blog.id)"><i
+            class="fas fa-heart"></i></a>
+          <p id="author">Author: {{like.blog.author.username}}</p>
+        </div>
+
+    </div>
+  </div>
+  <div class="message" *ngIf="likes?.length == 0"><p>No liked blogs with this topic or title!</p></div>
+
+  <div class="message error" *ngIf="errorLoadingLikes"><p>Error loading liked blogs! Check your connection!</p></div>
+
+  <app-loading *ngIf="!likes && !errorLoadingLikes"></app-loading>
+</main>

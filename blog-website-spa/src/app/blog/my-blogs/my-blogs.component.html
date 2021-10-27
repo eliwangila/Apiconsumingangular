@@ -1,0 +1,40 @@
+<main>
+  <div class="head">
+    <div class="title">
+      <i class="fas fa-archive"></i>
+      <h1>My Blogs</h1>
+    </div>
+
+    <div class="search-box" *ngIf="myBlogs">
+      <input type="text" #searchInput (change)="searchButtonHandler(searchInput)" value="{{search}}"
+             placeholder="Search...">
+      <div class="buttons">
+        <i id="search" (click)="searchButtonHandler(searchInput)" class="fas fa-search"></i>
+        <i id="redo" (click)="refreshButtonHandler()" class="fas fa-redo"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-container" *ngIf="myBlogs">
+    <div class="blog" *ngFor="let blog of myBlogs">
+      <a routerLink="/blogs/{{blog.id}}">
+        <img src="{{blog.image}}" alt="{{blog.title}} image">
+        <div class="blog-title">
+          <span>{{blog.topic}}</span>
+          <h1>{{blog.title}}</h1>
+        </div>
+      </a>
+
+      <div class="blog-info">
+          <button id="edit" routerLink="/blogs/{{blog.id}}/edit">Edit</button>
+          <button id="delete" (click)="deleteBlogById(blog.id)">Delete</button>
+      </div>
+
+    </div>
+  </div>
+  <div class="message" *ngIf="myBlogs?.length == 0"><p>You have no blogs!</p></div>
+
+  <div class="message error" *ngIf="errorLoadingBlogs"><p>Error loading liked blogs! Check your connection!</p></div>
+
+  <app-loading *ngIf="!myBlogs && !errorLoadingBlogs"></app-loading>
+</main>

@@ -1,0 +1,72 @@
+<main>
+
+  <div class="errors">
+    <ng-container *ngIf="form.get('username')?.touched">
+      <p *ngIf="form.get('username')?.errors?.required" class="error">
+        Username is required!
+      </p>
+      <p *ngIf="form.get('username')?.errors?.minlength" class="error">
+        Username should be at least 4 characters!
+      </p>
+    </ng-container>
+
+    <ng-container *ngIf="form.get('email')?.touched">
+      <p *ngIf="form.get('email')?.errors?.required" class="error">
+        Email is required!
+      </p>
+      <p *ngIf="form.get('email')?.errors?.invalidEmail" class="error">
+        Email is not valid!
+      </p>
+    </ng-container>
+
+    <ng-container *ngIf="form.get('password')?.touched">
+      <p *ngIf="form.get('password')?.errors?.required" class="error">
+        Password is required!
+      </p>
+      <p *ngIf="form.get('password')?.errors?.minlength" class="error">
+        Password must be at least 4 characters!
+      </p>
+    </ng-container>
+
+    <ng-container *ngIf="form.get('password2')?.touched">
+      <p *ngIf="form.get('password2')?.errors?.required" class="error">
+        Repeat Password is required!
+      </p>
+      <p *ngIf="form.get('password2')?.errors?.sameValue" class="error">
+        Repeat Password does not match password!
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="container">
+    <form [formGroup]="form" class="register" action="" method="post" (ngSubmit)="register()">
+      <h2>Register Form</h2>
+
+      <!--Username-->
+      <div class="form-group">
+        <label for="username"><i class="fas fa-user"></i></label>
+        <input type="text" name="username" id="username" placeholder="Username" formControlName="username">
+      </div>
+
+      <!--Email-->
+      <div class="form-group">
+        <label for="email"><i class="fas fa-envelope"></i></label>
+        <input formControlName="email" type="email" name="email" id="email" placeholder="Email">
+      </div>
+
+      <!--Password-->
+      <div class="form-group">
+        <label for="password"><i class="fas fa-lock"></i></label>
+        <input formControlName="password" type="password" name="password" id="password" placeholder="Password">
+      </div>
+
+      <!--Repass-->
+      <div class="form-group">
+        <label for="password2"><i class="fas fa-lock"></i></label>
+        <input type="password" formControlName="password2" name="password2" id="password2" placeholder="Repeat password">
+      </div>
+
+      <button>Register</button>
+    </form>
+  </div>
+</main>

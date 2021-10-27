@@ -1,0 +1,24 @@
+<main *ngIf="profile">
+  <div class="container">
+    <i class="fas fa-user" style="font-size: 200px;"></i>
+
+    <ul class="content">
+      <li>
+        <p>Username: <b>{{profile.username}}</b></p>
+      </li>
+      <li>
+        <p>Email: <b>{{profile.email}}</b></p>
+      </li>
+      <li *ngIf="profile.first_name">
+        <p>First Name: <b>{{profile.first_name}}</b></p>
+      </li>
+      <li *ngIf="profile.last_name">
+        <p>Last Name: <b>{{profile.last_name}}</b></p>
+      </li>
+      <li *ngIf="blogs">
+        <p>Blog Posts Created: <b>{{blogs.length}}</b></p>
+      </li>
+    </ul>
+  </div>
+</main>
+<app-loading *ngIf="!profile"></app-loading>

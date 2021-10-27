@@ -1,0 +1,23 @@
+<main>
+  <div class="blog" *ngIf="blog">
+    <img src="{{blog.image}}" alt="{{blog.title}} image">
+
+    <div class="blog-info">
+      <p id="author">Author: {{blog.author.username}}</p>
+      <p id="creationDate">Creation date: {{blog.created_at}}</p>
+
+      <span>Topic: {{blog.topic}}</span>
+      <h1>{{blog.title}}</h1>
+    </div>
+
+    <p id="content">{{blog.content}}</p>
+
+    <button id="edit" *ngIf="profile && blog!.author.id === profile.id" (click)="editBlogById()">Edit</button>
+    <button id="delete" *ngIf="profile && blog!.author.id === profile.id" (click)="deleteBlogById()">Delete</button>
+    <div *ngIf="profile && blog!.author.id !== profile.id">
+      <app-like-button (click)="performLike()" [isLiked]="isLiked"></app-like-button>
+    </div>
+  </div>
+
+  <app-loading *ngIf="!blog"></app-loading>
+</main>
