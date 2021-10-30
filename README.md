@@ -1,11 +1,11 @@
-## Blog Website
+## Awward Website
 
 ## Author
  created by Eli Wangila (c) 2021
 
  ## Description
 
- This website is a Blog for all topics written by all users.
+ This website is a Awward for all topics written by all users.
 
  ## It contains:
   - Public pages
@@ -21,7 +21,7 @@
     - View all liked blogs
     - View all owned blogs
     - View profile information
-    - Search in All, Blogs by Blog topic and title
+    - Search in All, projects by Awward topic and title
 
    ## Technology used 
     - Angular for Frontend
@@ -57,7 +57,8 @@
 
     ## Known Burgs
 
-    Running two different servers.. for them to communicate and display responces and request
+    - Running two different servers.. for them to communicate and display responces and request
+    - implementing links to repo for projects (still implementing that.)
     ## Contact information
     For colleboration and questions about the project reach out via email
     [ekirapaeli254@gmail.com]
