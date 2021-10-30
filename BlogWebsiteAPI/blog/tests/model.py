@@ -28,27 +28,27 @@ class BlogTests(APITestCase):
         self.assertEqual(self.blog.author, self.user)
 
 
-class LikeTests(APITestCase):
-    def setUp(self):
-        self.user = User.objects.create_user('test')
-        self.user2 = User.objects.create_user('test2')
-        self.blog = BlogFactory.create(author=self.user)
-        self.like = LikeFactory.create(blog=self.blog, user=self.user2)
-        self.like.save()
+# class LikeTests(APITestCase):
+#     def setUp(self):
+#         self.user = User.objects.create_user('test')
+#         self.user2 = User.objects.create_user('test2')
+#         self.blog = BlogFactory.create(author=self.user)
+#         self.like = LikeFactory.create(blog=self.blog, user=self.user2)
+#         self.like.save()
 
-    def test_has_model(self):
-        """
-        Has Like
-        """
-        like = Like()
-        self.assertIsInstance(like, Like)
+#     def test_has_model(self):
+#         """
+#         Has Like
+#         """
+#         like = Like()
+#         self.assertIsInstance(like, Like)
 
-    def test_can_create(self):
-        """
-        Can save likes properly
-        """
-        self.assertIsInstance(self.like, Like)
-        self.assertNotEqual(self.like, self.like.blog.author)
-        self.assertEqual(self.like.blog, self.blog)
-        self.assertEqual(self.like.user, self.user2)
-        self.assertEqual(self.blog.author, self.user)
+#     def test_can_create(self):
+#         """
+#         Can save likes properly
+#         """
+#         self.assertIsInstance(self.like, Like)
+#         self.assertNotEqual(self.like, self.like.blog.author)
+#         self.assertEqual(self.like.blog, self.blog)
+#         self.assertEqual(self.like.user, self.user2)
+#         self.assertEqual(self.blog.author, self.user)
