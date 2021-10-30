@@ -8,18 +8,15 @@
  This website is a Awward for all topics written by all users.
 
  ## It contains:
-  - Public pages
     - View all blogs
-    - View Detais of blog
+    - View Detais of project
     - About
     - Login
     - Register
-    - Create a blog
+    - Create a project
     - Like blogs of other people
-    - Edit your own blogs
-    - Delete your own blogs
-    - View all liked blogs
-    - View all owned blogs
+    - Edit your own project
+    - Delete your own projrct
     - View profile information
     - Search in All, projects by Awward topic and title
 
