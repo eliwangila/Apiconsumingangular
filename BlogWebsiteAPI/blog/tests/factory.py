@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from factory import SubFactory
-from factory.django import DjangoModelFactory
+from factory import DjangoModelFactory
 
 from blog.models import BlogPost, Like
 
