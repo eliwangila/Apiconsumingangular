@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURL: 'http://localhost:9000/api'
+  apiURL: 'https://awward-blog.herokuapp.com/api'
 };
 
 /*
